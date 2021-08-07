@@ -20,7 +20,7 @@ export class Stepper extends Component {
       },
     },
     min: 0,
-    max: 100,
+    max: 10,
     current: 0,
     step: 1,
   };
@@ -39,12 +39,20 @@ export class Stepper extends Component {
   };
 
   state = {
-    count: Number(this.props.current),
+    count: +this.props.current,
   };
+
+  static getDerivedStateFromProps({ min, max }, { count }) {
+    return {
+      isMinValue: count <= +min,
+      isMaxValue: count >= +max,
+      count: count < +min ? +min : count > +max ? +max : count,
+    };
+  }
 
   handleCountUpdate = (type) => {
     this.setState(({ count }, { step }) => ({
-      count: type === 'plus' ? count + step : count - step,
+      count: type === 'plus' ? count + +step : count - +step,
     }));
   };
 
@@ -55,7 +63,7 @@ export class Stepper extends Component {
       buttonProps: { minus, plus },
     } = this.props;
 
-    const { count } = this.state;
+    const { count, isMinValue, isMaxValue } = this.state;
 
     return (
       <div
@@ -71,6 +79,7 @@ export class Stepper extends Component {
           type="button"
           aria-label={minus.label}
           title={minus.withTitle && minus.label}
+          disabled={isMinValue}
           onClick={() => this.handleCountUpdate('minus')}
         >
           <SvgIconArrow className="icon-minus" />
@@ -81,6 +90,7 @@ export class Stepper extends Component {
           type="button"
           aria-label={plus.label}
           title={plus.withTitle && plus.label}
+          disabled={isMaxValue}
           onClick={() => this.handleCountUpdate('plus')}
         >
           <SvgIconArrow className="icon-plus" />
