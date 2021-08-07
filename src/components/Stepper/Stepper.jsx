@@ -40,21 +40,38 @@ export class Stepper extends Component {
 
   state = {
     count: +this.props.current,
+    isMinValue: +this.props.current <= +this.props.min,
+    isMaxValue: +this.props.current >= +this.props.max,
   };
-
-  static getDerivedStateFromProps({ min, max }, { count }) {
-    return {
-      isMinValue: count <= +min,
-      isMaxValue: count >= +max,
-      count: count < +min ? +min : count > +max ? +max : count,
-    };
-  }
 
   handleCountUpdate = (type) => {
-    this.setState(({ count }, { step }) => ({
-      count: type === 'plus' ? count + +step : count - +step,
-    }));
+    this.setState(({ count }, { min, max, step }) => {
+      const updateCount = type === 'plus' ? count + +step : count - +step;
+      const validUpdateCount =
+        updateCount < +min ? +min : updateCount > +max ? +max : updateCount;
+      return {
+        count: validUpdateCount,
+        isMinValue: validUpdateCount === +min,
+        isMaxValue: validUpdateCount === +max,
+      };
+    });
   };
+
+  componentDidMount() {
+    const { min, max, current } = this.props;
+    if (+min > +max)
+      console.error(
+        'Stepper 컴포넌트의 props를 확인해주세요. "max"가 "min"보다 작습니다.'
+      );
+    if (+current < +min)
+      console.error(
+        'Stepper 컴포넌트의 "current" props를 확인해주세요. 초기값이 "min"보다 작습니다.'
+      );
+    if (+current > +max)
+      console.error(
+        'Stepper 컴포넌트의 "current" props를 확인해주세요. 초기값이 "max"보다 큽니다.'
+      );
+  }
 
   render() {
     const {
