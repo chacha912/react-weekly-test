@@ -38,12 +38,24 @@ export class Stepper extends Component {
     step: StringOrNumberType,
   };
 
+  state = {
+    count: Number(this.props.current),
+  };
+
+  handleCountUpdate = (type) => {
+    this.setState(({ count }, { step }) => ({
+      count: type === 'plus' ? count + step : count - step,
+    }));
+  };
+
   render() {
     const {
       id,
       mode,
       buttonProps: { minus, plus },
     } = this.props;
+
+    const { count } = this.state;
 
     return (
       <div
@@ -59,15 +71,17 @@ export class Stepper extends Component {
           type="button"
           aria-label={minus.label}
           title={minus.withTitle && minus.label}
+          onClick={() => this.handleCountUpdate('minus')}
         >
           <SvgIconArrow className="icon-minus" />
         </button>
-        <output className="output" children={27} />
+        <output className="output" children={count} />
         <button
           className="button button-plus"
           type="button"
           aria-label={plus.label}
           title={plus.withTitle && plus.label}
+          onClick={() => this.handleCountUpdate('plus')}
         >
           <SvgIconArrow className="icon-plus" />
         </button>
