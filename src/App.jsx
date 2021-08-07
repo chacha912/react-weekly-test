@@ -1,3 +1,5 @@
+import { Stepper } from 'components';
+
 export default function App() {
-  return <div>Stepper 실습</div>;
+  return <Stepper id='stepperInfo' />;
 }
