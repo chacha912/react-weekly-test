@@ -2,6 +2,8 @@ import './Stepper.css'
 
 import { Component } from 'react'
 import { ReactComponent as SvgIconArrow } from 'assets/icons/arrow.svg'
+import { string, exact } from 'prop-types';
+import { ButtonType, StringOrNumberType, EnumType } from 'types';
 import { A11yHidden } from 'components'
 
 export class Stepper extends Component {
@@ -19,8 +21,21 @@ export class Stepper extends Component {
     },
     min: 0,
     max: 100,
-    current: 1,
+    current: 0,
     step: 1,
+  };
+
+  static propTypes = {
+    mode: EnumType('horizontal', 'vertical'),
+    id: string.isRequired,
+    buttonProps: exact({
+      minus: ButtonType,
+      plus: ButtonType,
+    }),
+    min: StringOrNumberType,
+    max: StringOrNumberType,
+    current: StringOrNumberType,
+    step: StringOrNumberType,
   };
 
   render() {
