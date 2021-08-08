@@ -4,6 +4,7 @@
 
 ## ✍ 01. Stepper 컴포넌트 만들기 
 
-[📃 Stepper README](https://github.com/chacha912/react-weekly-test/tree/01-stepper)  
-![stepper 디자인](./img/stepper.png)
+[📃 Stepper README](https://github.com/chacha912/react-weekly-test/tree/01-stepper) 
+ 
+![stepper 디자인](./img/stepper.jpg)
 
