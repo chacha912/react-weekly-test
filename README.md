@@ -2,7 +2,8 @@
 
 ✅ Figma 디자인 파일을 분석해 `stepper react 컴포넌트` 설계하기  
 
-[컴포넌트 demo](https://chacha912.github.io/react-weekly-test/)  
+[📌 컴포넌트 demo](https://chacha912.github.io/react-weekly-test/)   
+ 
 ![stepper figma 디자인](./img/ezgif.com-gif-maker.gif)  
 
 ## 기능 요구사항
