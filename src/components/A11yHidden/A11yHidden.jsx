@@ -1,4 +1,4 @@
-import './A11yHidden.css';
+import './A11yHidden.module.css';
 import { classNames } from 'utils';
 
 export function A11yHidden({
