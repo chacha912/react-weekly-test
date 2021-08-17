@@ -10,6 +10,7 @@
 
 ## ✍ 02. Netflix FAQ 클론
 
-[📃 Netflix README](https://github.com/chacha912/react-weekly-test/tree/02-netflix-faq) 
+[📃 Netflix README](https://github.com/chacha912/react-weekly-test/tree/02-netflix-faq)  
+[🔍 Netflix wiki](https://github.com/chacha912/react-weekly-test/wiki/%5B2%EC%A3%BC%EC%B0%A8%5D-Netflix-FAQ) 
 
 ![netflix figma 디자인](./img/netflix.png)
