@@ -5,23 +5,22 @@ import { ReactComponent as SvgIconPlus } from 'assets/icons/plus.svg';
 import { ReactComponent as SvgIconClose } from 'assets/icons/close.svg';
 
 export class FaqListItem extends Component {
-  state = {
-    isOpen: false,
-  };
-
   handleClick = (e) => {
-    console.log(e.currentTarget);
-    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
+    this.props.setSelectedList(e.currentTarget.dataset.id);
   };
 
   render() {
-    const { isOpen } = this.state;
     const {
-      faqData: { title, answer },
+      faqData: { id, title, answer },
+      isOpen,
     } = this.props;
     return (
       <li className={classNames(styles.list, isOpen ? styles.open : '')}>
-        <button className={styles.handleButton} onClick={this.handleClick}>
+        <button
+          className={styles.handleButton}
+          onClick={this.handleClick}
+          data-id={id}
+        >
           <span className={styles.title}>{title}</span>
           {isOpen ? (
             <SvgIconClose className={styles.icon} />

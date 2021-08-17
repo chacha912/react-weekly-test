@@ -1,4 +1,5 @@
 import styles from './FaqList.module.scss';
+import { Component } from 'react';
 import { FaqListItem } from 'components';
 
 const data = [
@@ -49,12 +50,25 @@ const data = [
   },
 ];
 
-export function FaqList() {
-  return (
-    <ul className={styles.faqList}>
-      {data.map((faqData) => (
-        <FaqListItem faqData={faqData} key={faqData.id} />
-      ))}
-    </ul>
-  );
+export class FaqList extends Component {
+  state = {
+    selectedList: null,
+  };
+
+  render() {
+    return (
+      <ul className={styles.faqList}>
+        {data.map((faqData) => (
+          <FaqListItem
+            faqData={faqData}
+            key={faqData.id}
+            isOpen={this.state.selectedList === faqData.id}
+            setSelectedList={(listId) => {
+              this.setState({ selectedList: listId });
+            }}
+          />
+        ))}
+      </ul>
+    );
+  }
 }
