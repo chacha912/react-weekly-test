@@ -55,6 +55,15 @@ export class FaqList extends Component {
     selectedList: null,
   };
 
+  setSelectedList = (listId) => {
+    this.setState(({ selectedList: prevListId }) => {
+      if (prevListId === listId) {
+        return { selectedList: null };
+      }
+      return { selectedList: listId };
+    });
+  };
+
   render() {
     return (
       <ul className={styles.faqList}>
@@ -63,9 +72,7 @@ export class FaqList extends Component {
             faqData={faqData}
             key={faqData.id}
             isOpen={this.state.selectedList === faqData.id}
-            setSelectedList={(listId) => {
-              this.setState({ selectedList: listId });
-            }}
+            setSelectedList={this.setSelectedList}
           />
         ))}
       </ul>
