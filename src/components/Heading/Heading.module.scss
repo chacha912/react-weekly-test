@@ -1,0 +1,13 @@
+@import 'styles/utils';
+
+.heading {
+  margin: em(54px, 48px) 0 em(50px, 48px);
+  font-size: rem(48px);
+  font-weight: 700;
+  color: $white;
+  text-align: center;
+
+  @include laptop {
+    font-size: rem(40px);
+  }
+}
