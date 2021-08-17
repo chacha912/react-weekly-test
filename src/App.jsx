@@ -1,5 +1,8 @@
-import { Stepper } from 'components';
+import { FaqList } from "containers";
 
 export default function App() {
-  return <Stepper id='stepperInfo' min="-20" max="20" step="4" current="1" />;
+  return (<>
+  <div className="box">Neflix FAQ</div>
+  <FaqList></FaqList>
+  </>)
 }
