@@ -8,3 +8,8 @@
  
 ![stepper 디자인](./img/stepper.jpg)
 
+## ✍ 02. Netflix FAQ 클론
+
+[📃 Netflix README](https://github.com/chacha912/react-weekly-test/tree/02-netflix-faq) 
+
+![netflix figma 디자인](./img/netflix.png)
