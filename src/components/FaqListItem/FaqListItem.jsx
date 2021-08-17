@@ -9,6 +9,11 @@ export class FaqListItem extends Component {
     isOpen: false,
   };
 
+  handleClick = (e) => {
+    console.log(e.currentTarget);
+    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
+  };
+
   render() {
     const { isOpen } = this.state;
     const {
@@ -16,7 +21,7 @@ export class FaqListItem extends Component {
     } = this.props;
     return (
       <li className={classNames(styles.list, isOpen ? styles.open : '')}>
-        <button className={styles.handleButton}>
+        <button className={styles.handleButton} onClick={this.handleClick}>
           <span className={styles.title}>{title}</span>
           {isOpen ? (
             <SvgIconClose className={styles.icon} />
