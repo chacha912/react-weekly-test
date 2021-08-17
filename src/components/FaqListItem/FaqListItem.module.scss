@@ -1,0 +1,35 @@
+@import 'styles/utils';
+
+.list {
+  margin-bottom: 10px;
+  width: 100%;
+  background: $dark-gray;
+}
+
+.handleButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: em(20px, 32px) rem(30px);
+  width: 100%;
+  border-bottom: 1px solid $black;
+  font-size: rem(32px);
+  line-height: 1.2;
+}
+
+.answer {
+  overflow: hidden;
+  padding-left: rem(30px);
+  padding-right: rem(30px);
+  max-height: 0;
+  font-size: rem(26px);
+  line-height: 1.5;
+  word-break: keep-all;
+  transition: 0.2s linear;
+}
+
+.list.open .answer {
+  padding-top: em(20px, 26px);
+  padding-bottom: em(20px, 26px);
+  max-height: 1200px;
+}
