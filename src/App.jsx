@@ -1,8 +1,10 @@
+import './App.scss'
+
 import { FaqList } from "containers";
 
 export default function App() {
-  return (<>
-  <div className="box">Neflix FAQ</div>
-  <FaqList></FaqList>
-  </>)
+  return (
+  <div className='container'>
+    <FaqList></FaqList>
+  </div>)
 }

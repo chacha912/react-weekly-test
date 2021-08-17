@@ -1,0 +1,12 @@
+@import 'styles/utils';
+
+.container {
+  margin: 0 auto;
+  padding: 50px 0;
+  width: 1200px;
+
+  @include laptop {
+    padding: 50px em(10px);
+    width: 100%;
+  }
+}
